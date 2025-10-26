@@ -36,6 +36,8 @@ Ollama AI needs to have the llava and gpt-oss:20b models loaded
 
 Algorithm influenced generally by Agentic AI patterns
 
+Uses some example code from:   https://markaicode.com/process-images-ollama-multimodal-ai/
+
 """
 
 
