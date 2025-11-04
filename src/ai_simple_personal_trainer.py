@@ -998,6 +998,13 @@ def analyzeOverall( ) :
 
     print( overall_areas )
 
+    promptA = "you are the mindfulness coach for the athlete described below.  write a comprehensive list of affirmations to assert performing workouts to develop the following lagging areas and affirmations to assert peak development in the following lagging areas:\n\n" + overall_areas
+
+    print( "\n\naffirmations:\n\n" )
+    affirmations = send_prompt_gpt_oss( promptA )
+    with open( "Affirmations.txt" , "w" , encoding="utf-8" ) as f :
+        f.write( affirmations )
+
     prompt2 = "generate a set of customized workouts for an athlete to address the following lagging areas:\n\n" + overall_areas
 
     print( "\n\noverall work:\n\n" )
@@ -1058,8 +1065,12 @@ def analyzeOverall( ) :
         final_work = send_prompt_gpt_oss( prompt3 )
 
         print( final_work )
+        with open( "FinalWorkout.txt" , "w" , encoding="utf-8" ) as f :
+            f.write( final_work )
     else : 
         print( "final work same as overall work" )
+        with open( "FinalWorkout.txt" , "w" , encoding="utf-8" ) as f :
+            f.write( overall_work )
 
 
 
