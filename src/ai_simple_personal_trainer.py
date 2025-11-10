@@ -1012,6 +1012,13 @@ def analyzeOverall( ) :
     with open( "Visualizations.txt" , "w" , encoding="utf-8" ) as f :
         f.write( visualizations )
 
+    promptC = "you are the mindfulness coach for the athlete described below.  write a thirty minute workout hypnosis script using vivid imagery and all the senses for working out and building up the lagging areas described below.  the script will have a hypnotic induction phase, a deepening phase, a workout, visualization and affirmation phase, and a termination phase.  in the workout and visualization phase the athlete performs workouts fully developing the following lagging areas and where the athlete looks in a mirror and sees himself having peak development in the following lagging areas:\n\n" + overall_areas
+
+    print( "\n\hypnosis:\n\n" )
+    hypnosis = send_prompt_gpt_oss( promptC )
+    with open( "Hypnosis.txt" , "w" , encoding="utf-8" ) as f :
+        f.write( hypnosis )
+
     prompt2 = "generate a set of customized workouts for an athlete to address the following lagging areas:\n\n" + overall_areas
 
     print( "\n\noverall work:\n\n" )
