@@ -67,7 +67,7 @@ def analyze_image_internal(image_path, prompt="Describe this image in detail"):
     
     # Prepare the request
     payload = {
-        "model": "llava",
+        "model": "gemma3:27b",
         "prompt": prompt,
         "images": [base64_image],
         "stream": False
@@ -1018,6 +1018,13 @@ def analyzeOverall( ) :
     hypnosis = send_prompt_gpt_oss( promptC )
     with open( "Hypnosis.txt" , "w" , encoding="utf-8" ) as f :
         f.write( hypnosis )
+
+    promptD = "you are the mindfulness coach for the athlete described below.  Using vivid imagery and your knowledge of sports psychology, generate a list of ten Stable Diffusion prompts for producing optimal male workout motivation images for working out and building up the following lagging areas:\n\n" + overall_areas
+
+    print( "\n\image prompts:\n\n" )
+    image_prompts = send_prompt_gpt_oss( promptD )
+    with open( "ImagePrompts_StableDiffusion.txt" , "w" , encoding="utf-8" ) as f :
+        f.write( image_prompts )
 
     prompt2 = "generate a set of customized workouts for an athlete to address the following lagging areas:\n\n" + overall_areas
 
